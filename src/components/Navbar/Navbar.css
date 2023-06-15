@@ -1,11 +1,22 @@
-/* src/components/Navbar/Navbar.css */
-
 .navbar {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #3B5998;
+  color: white;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #f5f5f5;
+  color: #3B5998;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

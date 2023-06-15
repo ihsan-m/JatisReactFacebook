@@ -1,0 +1,39 @@
+/* src/components/PostCard/CreatePostCard.css */
+
+.create-post-card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    width: 80%;
+
+  }
+  
+  .create-post-card .post-input {
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .create-post-card .actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .create-post-card .actions button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3b5998;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .create-post-card .actions button:hover {
+    background-color: #4a69ad;
+  }
+  

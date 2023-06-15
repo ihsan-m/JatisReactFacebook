@@ -4,11 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Navbar from '../Navbar/Navbar';
 import PostCard from '../PostCard/PostCard';
+import CreatePostCard from '../PostCard/CreatePostCard';
 import './HomePage.css';
 
 const HomePage = () => {
   const [posts, setPosts] = useState([]);
   const [username, setUsername] = useState('');
+  const [pageName, setPageName] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,9 +29,10 @@ const HomePage = () => {
           navigate('/login');
         });
 
-      axios.get(`https://graph.facebook.com/113209371802031/feed?fields=message,attachments{media}&access_token=${accessToken}`)
+      axios.get(`https://graph.facebook.com/113209371802031?fields=name,feed{message,attachments{media},created_time}&access_token=${accessToken}`)
         .then(response => {
-          setPosts(response.data.data);
+          setPosts(response.data.feed.data);
+          setPageName(response.data.name);
         })
         .catch(error => {
           console.error('Error fetching posts:', error);
@@ -46,9 +49,13 @@ const HomePage = () => {
   return (
     <div className="homePage">
       <Navbar username={username} onLogout={handleLogout} />
+      <h2>{pageName}</h2>
+      <CreatePostCard />
+      <div className="content">
       {posts.map(post => (
         <PostCard key={post.id} post={post} />
       ))}
+      </div>
     </div>
   );
 };
